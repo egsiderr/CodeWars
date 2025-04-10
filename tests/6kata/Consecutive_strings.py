@@ -19,9 +19,19 @@ longest_consec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abi
 n - длина массива строк, если n = 0 или k > n или k <= 0, верните "" (верните Nothing в Elm, "nothing" в Erlang).
 """
 
+
 def longest_consec(strarr, k):
     if len(strarr) == 0 or k > len(strarr) or k <= 0:
         return ""
 
-    for i in range(0, len(strarr) - k):
-        pass
+    result = ""
+    max_len = 0
+    for i in range(0, len(strarr) - k + 1):
+        current = "".join(strarr[i:i+k])
+        current_len = len(current)
+        if current_len > max_len:
+            max_len = current_len
+            result = current
+    return result
+
+print(longest_consec(["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"], 2))
