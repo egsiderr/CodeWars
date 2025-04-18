@@ -15,4 +15,5 @@ def array_diff(a, b):
         if i not in b:
             result.append(i)
     return result
+
 print(array_diff(a, b))
